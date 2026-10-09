@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Gallery</title>
+<style>
+body{ text-align:center; }
+.gallery{
+ display:grid;
+ grid-template-columns: 1fr 1fr 1fr 1fr;
+ gap:10px;
+}
+img{
+ width:100%;
+ height:150px;
+ border:1px solid black;
+}
+#myModal{
+ display:none;
+ position:fixed;
+ top:0; left:0;
+ width:100%; height:100%;
+ background-color: rgba(0,0,0,0.9);
+}
+#myModal img{
+ width:400px;
+ height:300px;
+ margin-top:100px;
+}
+</style>
+</head>
+<body>
+<h2>My Image Gallery</h2>
+
+<div class="gallery">
+<img src="https://picsum.photos/200/150?1" alt="nature image 1" onclick="openImage(this.src)">
+<img src="https://picsum.photos/200/150?2" alt="nature image 2" onclick="openImage(this.src)">
+<img src="https://picsum.photos/200/150?3" alt="nature image 3" onclick="openImage(this.src)">
+<img src="https://picsum.photos/200/150?4" alt="nature image 4" onclick="openImage(this.src)">
+<img src="https://picsum.photos/200/150?5" alt="nature image 5" onclick="openImage(this.src)">
+<img src="https://picsum.photos/200/150?6" alt="nature image 6" onclick="openImage(this.src)">
+<img src="https://picsum.photos/200/150?7" alt="nature image 7" onclick="openImage(this.src)">
+<img src="https://picsum.photos/200/150?8" alt="nature image 8" onclick="openImage(this.src)">
+</div>
+
+<div id="myModal" onclick="closeImage()">
+<img id="bigImage" src="">
+<br><br>
+<button onclick="closeImage()">Close</button>
+</div>
+
+<script>
+function openImage(src){
+ document.getElementById("bigImage").src = src;
+ document.getElementById("myModal").style.display = "block";
+}
+function closeImage(){
+ document.getElementById("myModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
